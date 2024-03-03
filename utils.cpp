@@ -418,22 +418,21 @@ void getIdentifier(){
 				for(auto oldContact : imageList[i].contactPoints){
 					float bestScore(-1);
 					for(auto oldRef : oldContact.refPoint){
-						if(oldRef.first==0 || oldRef.second==0) continue;
+						if(oldRef.first==0 || oldRef.second==0 || isinf(oldRef.first) || isinf(oldRef.second)) continue;
 						float score = (1-(abs(newRef.first/oldRef.first)) + abs(1-(newRef.second/oldRef.second)));
+						if(isinf(score)) continue;
 						if(bestScore==-1 || score>bestScore) bestScore=score;
 					}
 					if(linkBestScore==-1 || bestScore>linkBestScore) linkBestScore=bestScore;
 				}
 				//cout << linkBestScore << endl;
-				if(finalScore==-1 || linkBestScore>finalScore) finalScore=finalScore;
+				if(finalScore==-1 || linkBestScore>finalScore) finalScore=linkBestScore;
 			}
-			cout << finalScore << endl;
+			//cout << finalScore << endl;
 			totalScore+=finalScore;
 		}
-		cout << "Total score: " << totalScore/imageList[i].contactPoints.size() << endl;
+		cout << "Correlation with " << i+1 << ": " << totalScore/imageList[i].contactPoints.size() << endl;
 	}*/
-	
-	//exit(1);
 }
 
 

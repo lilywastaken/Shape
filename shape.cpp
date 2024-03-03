@@ -13,22 +13,25 @@ int main(int argc, char* argv[]){
 	//string path = "img/2_E.png";
 	//if(argc>1) path = "img/"+string(argv[1])+".png";
 	
+	
+	cout << "Processing image 1..." << endl;
+	
 	extractImage("img/number/1_D.png");
 	getIdentifier();
 	
-	cout << "===" << endl;
+	cout << "Processing image 2..." << endl;
 	
 	extractImage("img/number/2_D.png");
 	getIdentifier();
 	
-	cout << "===" << endl;
+	cout << "Processing image 3..." << endl;
 	
 	extractImage("img/number/3_D.png");
 	getIdentifier();
 	
-	cout << "===" << endl;
+	cout << "Processing hand-made digit..." << endl;
 	
-	extractImage("img/number/hand2_A.png");
+	extractImage("img/number/hand2_D.png");
 	getIdentifier();
 	
 	destroyAllWindows();
